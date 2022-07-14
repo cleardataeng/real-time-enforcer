@@ -230,6 +230,8 @@ def callback(pubsub_message):
                 'message_id': message_id,
                 'metadata': parsed_message.metadata.dict(),
                 'policy_id': evaluation.policy_id,
+                'policy_attributes': evaluation.policy_attributes,
+                'evaluation_attributes': evaluation.evaluation_attributes,
                 'remediable': evaluation.remediable,
                 'resource_data': resource.to_dict(),
                 'resource_labels': resource.labels,

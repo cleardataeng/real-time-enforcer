@@ -60,6 +60,9 @@ test_single_asset_log_params = [
     ("dataproc_createcluster.json", "dataproc.googleapis.com/Cluster", "write", "test-dataproc-cluster"),
     ("datafusion-create-instance.json", "datafusion.googleapis.com/Instance", "create", "test-instance"),
     ("datafusion-update-instance.json", "datafusion.googleapis.com/Instance", "write", "test-instance"),
+    ("dataform-create-repository.json", "dataform.googleapis.com/Repository", "create", "test-repository"),
+    ("dataform-update-repository.json", "dataform.googleapis.com/Repository", "write", "test-repository"),
+    ("dataform-create-workspace.json", "dataform.googleapis.com/Workspace", "create", "test-workspace"),
     ("gke-cluster-update.json", "container.googleapis.com/Cluster", "write", "example-cluster"),
     ("gke-nodepool-set.json", "container.googleapis.com/NodePool", "write", "example-pool"),
 

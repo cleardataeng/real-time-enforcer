@@ -426,7 +426,7 @@ class StackdriverParser():
                 add_resource()
             elif len(name_bits) == 8 and name_bits[6] == "workspaces":
                 resource_data["resource_type"] = "dataform.googleapis.com/Workspace"
-                resource_data["repository"] = name_bits[4]
+                resource_data["repository"] = name_bits[5]
                 add_resource()
 
 

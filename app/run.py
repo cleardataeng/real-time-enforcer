@@ -31,6 +31,7 @@ import hooks
 # Load configuration
 app_name = os.environ.get('APP_NAME', 'forseti-realtime-enforcer')
 project_id = os.environ.get('PROJECT_ID')
+subscription_project_id = os.environ.get('SUBSCRIPTION_PROJECT_ID', project_id)
 subscription_name = os.environ.get('SUBSCRIPTION_NAME')
 opa_url = os.environ.get('OPA_URL')
 python_policy_path = os.environ.get('PYTHON_POLICY_PATH')
@@ -315,7 +316,7 @@ if __name__ == "__main__":
 
     subscriber = pubsub.SubscriberClient(credentials=app_creds)
 
-    subscription_path = 'projects/{project_id}/subscriptions/{sub}'.format(
+    subscription_path = 'projects/{subscription_project_id}/subscriptions/{sub}'.format(
         project_id=project_id,
         sub=subscription_name
     )

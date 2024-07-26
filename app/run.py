@@ -317,7 +317,7 @@ if __name__ == "__main__":
     subscriber = pubsub.SubscriberClient(credentials=app_creds)
 
     subscription_path = 'projects/{subscription_project_id}/subscriptions/{sub}'.format(
-        project_id=project_id,
+        subscription_project_id=subscription_project_id,
         sub=subscription_name
     )
 

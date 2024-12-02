@@ -74,7 +74,8 @@ test_single_asset_log_params = [
     ("serviceusage-disable.json", "serviceusage.googleapis.com/Service", "write", "zync.googleapis.com"),
     ("dataflow-job-step.json", "dataflow.googleapis.com/Job", "write", "job-id"),
     ("memorystore-redis.json", "redis.googleapis.com/Instance", "write", "test-instance"),
-
+    ("notebook_instance_create_01.json", "notebooks.googleapis.com/Instance", "create", "test-create-event"),
+    ("notebook_instance_update_01.json", "notebooks.googleapis.com/Instance", "update", "test-notebook"),
 ]
 
 test_log_resource_count_params = [

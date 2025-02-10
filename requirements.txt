@@ -6,5 +6,5 @@ google-cloud-logging==2.2.0
 google-cloud-monitoring
 google-auth
 # https://github.com/grpc/grpc/issues/24552
-grpcio==1.30.0
+grpcio==1.49.0
 pydantic

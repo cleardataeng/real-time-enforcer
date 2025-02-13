@@ -1,10 +1,10 @@
 python-dateutil
-rpe-lib>=3.2.1
+rpe-lib>=3.3.0
 jmespath
 google-cloud-pubsub
 google-cloud-logging==2.2.0
 google-cloud-monitoring
 google-auth
 # https://github.com/grpc/grpc/issues/24552
-grpcio==1.30.0
+grpcio==1.70.0
 pydantic

@@ -12,6 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from .evaluation import process_evaluation  # noqa: F401
-from .enforcement import process_enforcement_decision  # noqa: F401
-from .message_filter import should_ignore_message  # noqa: F401
+# Allows ignoring of some pub sub messages as required.
+def should_ignore_message(parsed_message):
+    return False

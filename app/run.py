@@ -148,6 +148,11 @@ def callback(pubsub_message):
         pubsub_message.ack()
         return
 
+    if hooks.should_ignore_message(parsed_message):
+        logger({'message_id': message_id, 'message': 'Message discarded by ignore hook.'})
+        pubsub_message.ack()
+        return
+
     # Inject some metadata we want for all messages
     parsed_message.metadata.message_publish_timestamp = message_publish_ts
     parsed_message.metadata.message_receive_timestamp = message_receive_ts

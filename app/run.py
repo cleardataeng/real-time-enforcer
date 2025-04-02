@@ -300,8 +300,6 @@ def callback(pubsub_message):
 
 
 def delay(trigger):
-    global enforcement_delay
-
     if enforcement_delay and trigger.control_data.delay_enforcement:
 
         # If the log is old, subtract that from the enforcement delay

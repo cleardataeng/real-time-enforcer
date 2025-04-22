@@ -19,6 +19,7 @@ import traceback
 from google.cloud import pubsub
 
 from rpe import RPE
+from rpe.exceptions import ResourceException
 
 from parsers.stackdriver import StackdriverParser
 from parsers.cai import CaiParser
@@ -134,7 +135,13 @@ def callback(pubsub_message):
                 pubsub_message.ack()
                 return
             break
-
+        except ResourceException as re:
+            # There can be too many unknown cai resources. Logging them blindly can fill up logs.
+            logger.debug({
+                'message_id':message_id,
+                'error_message': f'Parser {parser.__name__} was unable to parse message.',
+                **exc_info(re)
+            })
         except Exception as e:
             logger({
                 'message_id': message_id,
@@ -144,7 +151,10 @@ def callback(pubsub_message):
 
     # If no message parsers were able to parse the message, log and return
     if parser_match is None:
-        logger({'message_id': message_id, 'message': 'No parsers recognized the message format, discarding message'})
+        logger.debug({
+            'message_id': message_id,
+            'message': 'No parsers recognized the message format, discarding message'
+        })
         pubsub_message.ack()
         return
 

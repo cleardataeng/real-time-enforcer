@@ -7,4 +7,4 @@ google-cloud-monitoring
 google-auth
 # https://github.com/grpc/grpc/issues/24552
 grpcio==1.70.0
-pydantic
+pydantic~=2.11

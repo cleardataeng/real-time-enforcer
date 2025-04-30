@@ -129,7 +129,7 @@ def callback(pubsub_message):
                 logger.debug({
                     'message_id':
                     message_id, 'message': f'No resources identified in message parsed by {parser.__name__}',
-                    'metadata': parsed_message.metadata.dict()
+                    'metadata': parsed_message.metadata.model_dump()
                 })
 
                 pubsub_message.ack()
@@ -198,7 +198,7 @@ def callback(pubsub_message):
             logger({
                 'message_id': message_id,
                 'message': 'Exception while getting credentials for resource',
-                'metadata': parsed_message.metadata.dict(),
+                'metadata': parsed_message.metadata.model_dump(),
                 'resource_data': resource.to_dict(),
                 **exc_info(e),
             })
@@ -215,7 +215,7 @@ def callback(pubsub_message):
                 'message_id': message_id,
                 'resource_data': resource.to_dict(),
                 'message': 'Exception while evaluating resource',
-                'metadata': parsed_message.metadata.dict(),
+                'metadata': parsed_message.metadata.model_dump(),
                 **exc_info(e),
             })
             pubsub_message.ack()
@@ -244,7 +244,7 @@ def callback(pubsub_message):
                 'event': 'evaluation',
                 'excluded': evaluation.excluded,
                 'message_id': message_id,
-                'metadata': parsed_message.metadata.dict(),
+                'metadata': parsed_message.metadata.model_dump(),
                 'policy_id': evaluation.policy_id,
                 'policy_attributes': evaluation.policy_attributes,
                 'evaluation_attributes': evaluation.evaluation_attributes,
@@ -277,7 +277,7 @@ def callback(pubsub_message):
                     remediation_log = {
                         'event': 'remediation',
                         'message_id': message_id,
-                        'metadata': parsed_message.metadata.dict(),
+                        'metadata': parsed_message.metadata.model_dump(),
                         'policy_id': enforcement.evaluation.policy_id,
                         'resource_data': resource.to_dict(),
                         'resource_labels': resource.labels,
@@ -296,7 +296,7 @@ def callback(pubsub_message):
                     logger(dict(
                         message='Execption while attempting to remediate',
                         message_id=message_id,
-                        metadata=parsed_message.metadata.dict(),
+                        metadata=parsed_message.metadata.model_dump(),
                         policy_id=enforcement.evaluation.policy_id,
                         resource_data=resource.to_dict(),
                         **exc_info(e),

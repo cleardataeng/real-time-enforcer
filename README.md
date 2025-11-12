@@ -1,5 +1,15 @@
 # Forseti Real-Time Enforcer
 
+> **⚠️ DEPRECATED - This repository is no longer maintained**
+> 
+> This project is no longer actively maintained or updated. The code is provided as-is for reference purposes only.
+> 
+> - No further updates or bug fixes will be provided
+> - Issues and pull requests will not be reviewed
+> - Security vulnerabilities will not be patched
+> 
+> If you're using this project, please consider migrating to alternative solutions or forking this repository for your own maintenance.
+
 The Forseti Real-Time Enforcer uses a Stackdriver log export (to a Pub/Sub topic) to trigger policy evaluation and enforcement
 
 [![Build Status](https://github.com/cleardataeng/real-time-enforcer/actions/workflows/build.yml/badge.svg)](https://github.com/cleardataeng/real-time-enforcer/actions/workflows/build.yml)
